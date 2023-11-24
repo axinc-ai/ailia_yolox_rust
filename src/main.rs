@@ -10,11 +10,13 @@ use ailia_sys::{
     AILIA_NETWORK_IMAGE_RANGE_UNSIGNED_INT8,
 };
 
+/*
 use opencv::core::{Mat, Point, Rect, Scalar, Size};
 use opencv::highgui;
 use opencv::imgproc::{put_text, rectangle};
 use opencv::prelude::MatTraitConstManual;
 use opencv::videoio::{self, VideoCaptureTrait, VideoCaptureTraitConst};
+*/
 
 struct Network {
     ptr: NonNull<AILIANetwork>,
@@ -257,6 +259,7 @@ static COCO_CATEGORY: [&str; 80] = [
     "toothbrush",
 ];
 
+/*
 fn object_to_bbox(obj: Object, im_size: Size) -> Rect {
     let multiply_float_int = |raito, num_pixel| (raito * num_pixel as f32) as i32;
     let xmin = multiply_float_int(obj.x, im_size.width);
@@ -285,6 +288,7 @@ fn plot_image(img: &mut Mat, obj: &Object, size: Size) {
     )
     .unwrap();
 }
+*/
 
 fn main() {
     let net = Network::new(
@@ -303,6 +307,7 @@ fn main() {
         AILIA_DETECTOR_FLAG_NORMAL,
     );
 
+        /*
     let window = "YOLOX infered by ailia SDK";
     highgui::named_window(window, highgui::WINDOW_AUTOSIZE).unwrap();
     let mut cam = videoio::VideoCapture::new(0, videoio::CAP_ANY).unwrap(); // 0 is the default camera
@@ -344,4 +349,5 @@ fn main() {
             break;
         }
     }
+    */
 }
