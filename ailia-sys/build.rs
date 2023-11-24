@@ -7,9 +7,10 @@ fn main() {
     let ailia_include_dir = env::var("AILIA_INC_DIR").expect("Please set AILIA_INC_DIR");
 
     println!("cargo:rustc-link-search=native={}", ailia_path);
-    println!("cargo:rustc-link-lib=dylib=ailia");
-    println!("cargo:rustc-link-lib=dylib=ailia_pose_estimate");
+    println!("cargo:rustc-link-lib=static=ailia-arm64");
+    println!("cargo:rustc-link-lib=static=clang_rt-arm64.ios");
     println!("cargo:rerun-if-changed=wrapper.h");
+    println!("cargo:rustc-link-lib=c++");
     
     let bindings = bindgen::Builder::default()
         .clang_arg(format!("-I{}", ailia_include_dir))

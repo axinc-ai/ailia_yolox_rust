@@ -290,7 +290,8 @@ fn plot_image(img: &mut Mat, obj: &Object, size: Size) {
 }
 */
 
-fn main() {
+#[no_mangle]
+pub extern fn ailia_rust_test() {
     let net = Network::new(
         AILIA_ENVIRONMENT_ID_AUTO,
         AILIA_MULTITHREAD_AUTO.try_into().unwrap(),
